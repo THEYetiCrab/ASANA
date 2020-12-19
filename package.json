@@ -1,0 +1,51 @@
+{
+  "name": "asana",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "NODE_ENV=development concurrently \" webpack-dev-server\" \"nodemon server/server.js\"",
+    "build": "NODE_ENV=production webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikitinmax2300/ASANA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikitinmax2300/ASANA/issues"
+  },
+  "homepage": "https://github.com/nikitinmax2300/ASANA#readme",
+  "nodemonConfig": {
+    "ignore": [
+      "build",
+      "client"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.12.3",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.1",
+    "css-loader": "^5.0.1",
+    "http-proxy-middleware": "^1.0.6",
+    "isomorphic-fetch": "^2.2.1",
+    "nodemon": "^1.18.9",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
