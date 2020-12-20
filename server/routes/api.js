@@ -3,14 +3,14 @@ const apiController = require('../controllers/apiController.js');
 const router = express.Router();
 
 
-router.get('/test', apiController.getBankInfo,  (req, res) =>  {
-  console.log('inside')
-  return res.status(200).json(res.locals.test)
+router.get('/userinfo/', apiController.getBankInfo,  (req, res) =>  {
+  // const name = req.params.username
+  return res.status(200).json(res.locals.data);
 })
-router.post('/', (req,res) => {
-  console.log('hello')
-  return res.send(200);
-  }
-)
+
+// need additional middleware functions to deconstruct API data into sql friendly format the data into array format etc. 
+router.post('/userinfo', apiController.addBankInfo, (req,res) => {
+  return res.status(200).json('success');
+})
 
 module.exports = router;

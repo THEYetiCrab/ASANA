@@ -10,8 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //route handlers:
-app.use('/test1', (req, res) => res.send('test'));
-app.use('/hello', apiRouter);
+app.use('/database', apiRouter);
 
 // statically serve everything in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
