@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "nodemon server/server.js",
     "dev": "NODE_ENV=development concurrently \" webpack-dev-server\" \"nodemon server/server.js\"",
     "build": "NODE_ENV=production webpack"
   },
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "express": "^4.12.3",
+    "pg": "^8.5.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.3.1"
