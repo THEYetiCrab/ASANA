@@ -9,9 +9,11 @@ function Landing () {
   return (
     <div>
       <div className = "leftSide">
+        blala
         {/* <Navbar /> */}
       </div>
       <div className = "rightSide">
+        fssf
         {/* <AccountInfo />
         <DisplayData />
         <Transactions /> */}
