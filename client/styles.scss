@@ -25,3 +25,30 @@ body {
 .submit {
   margin-top: 10px;
 }
+
+.landing {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+
+}
+.leftSide {
+  background-color: #c2bfbf;
+  flex-grow: 1;
+  padding: 10px;
+  border: 3px solid white;
+  border-radius: 15px;
+}
+.rightSide {
+  flex-grow: 6;
+  border-radius: 10px;
+  padding: 10px;
+  border: 3px solid white;
+  background-color: #90E8FB;
+}
+

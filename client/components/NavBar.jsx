@@ -17,9 +17,12 @@ const NavBar = () => {
 
 
       return (
+        <div className = "navbar">
+          <h1>Test</h1>
         <MyButton onClick={() => open()} disabled={!ready}>
           Connect a bank account
         </MyButton>
+        </div>
       );
 };
 

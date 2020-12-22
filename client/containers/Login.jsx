@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import '../styles.scss';
 
-function Login() {
+const Login = () => {
 
   const { register, handleSubmit, errors } = useForm(); // initialize the hook
   const onSubmit = (data) => {
