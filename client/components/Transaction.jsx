@@ -14,5 +14,6 @@ const Transaction = ({name, category, date, amount}) => {
   )
 
 
-  export default Transaction;
 }
+
+export default Transaction;
