@@ -9,10 +9,7 @@ function AccountInfo() {
 
   return (
     <div>
-      <p>Card Number</p>
-      
-
-
+      <h1 className = "accInfo">Account Information</h1>
     </div>
   )
 }

@@ -9,12 +9,12 @@ function Landing () {
   return (
     <div className ="landing">
       <div className = "leftSide">
-        {/* {NavBar} */} 
+        <NavBar /> 
       </div>
       <div className = "rightSide">
-        {/* <AccountInfo />
-        <DisplayData />
-        <Transactions /> */}
+       <AccountInfo />
+        {/* // <DisplayData />
+        // <Transactions /> */}
       </div>
     </div>
   )
