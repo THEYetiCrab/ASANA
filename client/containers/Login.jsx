@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import '../styles.scss';
 
-function Login() {
+function Login () {
 
   const { register, handleSubmit, errors } = useForm(); // initialize the hook
   const onSubmit = (data) => {

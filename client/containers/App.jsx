@@ -22,8 +22,8 @@ import Landing from './Landing.jsx';
 function App() {
 return (
   <div>
-    < Login />
-   {/* < Landing /> */}
+    {/* <Login /> */}
+    <Landing />
   </div>
   )
 }

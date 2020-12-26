@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 
-function AccountInfo() {
+function AccountInfo () {
 
 
 
@@ -9,7 +9,8 @@ function AccountInfo() {
 
   return (
     <div>
-      <p>Card Number</p>
+      <p>Account Name: </p>
+      <p>Account Type: </p> 
       
 
 
