@@ -13,8 +13,8 @@ function Landing () {
       </div>
       <div className = "rightSide">
        <AccountInfo />
-        {/* // <DisplayData />
-        // <Transactions /> */}
+       <DisplayData />
+      <Transactions /> 
       </div>
     </div>
   )

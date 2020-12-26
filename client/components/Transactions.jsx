@@ -7,7 +7,8 @@ import Transaction from './Transaction.jsx';
 
 const Transactions = ({transactions}) => (
   <ScrollToBottom className="transactions">
-    {transactions.map((transaction, i) => <div key={i}><Transaction name={transaction.name} category={transaction.category} date={transaction.date} amount={transactions.amount}/></div>)}
+    <h3>Transactions</h3>
+    {/* {transactions.map((transaction, i) => <div key={i}><Transaction name={transaction.name} category={transaction.category} date={transaction.date} amount={transactions.amount}/></div>)} */}
   </ScrollToBottom>
 )
 

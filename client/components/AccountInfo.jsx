@@ -8,8 +8,8 @@ function AccountInfo() {
 
 
   return (
-    <div>
-      <h1 className = "accInfo">Account Information</h1>
+    <div className = "accInfo">
+      <h3>Account Information</h3>
     </div>
   )
 }

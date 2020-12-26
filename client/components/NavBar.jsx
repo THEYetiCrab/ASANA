@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import AccountList from './AccountList.jsx'
 import { usePlaidLink } from 'react-plaid-link';
 import Button from '@material-ui/core/Button';
 
@@ -22,9 +23,10 @@ const NavBar = () => {
         <div className = "navbar">
           <Button variant="contained" color="primary">
         {/* <MyButton onClick={() => open()} disabled={!ready}> */}
-          Connect a bank account
+          Connect an account
           </Button>
         {/* </MyButton> */}
+        <AccountList />
         </div>
       );
 };
