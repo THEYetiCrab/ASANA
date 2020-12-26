@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'; 
 import { useForm } from 'react-hook-form';
 import '../styles.scss';
+import PlaidButton from '../components/PlaidButton.jsx'
 
 function Login() {
 
@@ -9,8 +10,9 @@ function Login() {
     console.log(data);  /// send data to Auth for verification
   };
 
-
- return (
+ 
+  return (
+  <div>
   <div className="login">
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <h3>Username</h3>
@@ -21,6 +23,8 @@ function Login() {
       {errors.password && 'Password is required.'}
       <input className = "submit" type="submit" />
     </form>
+  </div>
+    <PlaidButton />
   </div>
  )
 }
