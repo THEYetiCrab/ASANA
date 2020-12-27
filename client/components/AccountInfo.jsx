@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 
 function AccountInfo () {
 
@@ -8,12 +8,8 @@ function AccountInfo () {
 
 
   return (
-    <div>
-      <p>Account Name: </p>
-      <p>Account Type: </p> 
-      
-
-
+    <div className = "accInfo">
+      <h3>Account Information</h3>
     </div>
   )
 }

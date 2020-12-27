@@ -25,13 +25,16 @@
     ]
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "express": "^4.12.3",
     "pg": "^8.5.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.3.1",
     "react-hook-form": "^6.13.1",
-    "react-plaid-link": "^3.0.0"
+    "react-plaid-link": "^3.0.0",
+    "react-router-dom": "^5.2.0",
+    "react-scroll-to-bottom": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

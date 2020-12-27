@@ -1,7 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Login from './Login.jsx';
 import Landing from './Landing.jsx';
+import SignIn from './SignIn.jsx';
 
 
 
@@ -19,14 +20,14 @@ import Landing from './Landing.jsx';
     //Transaction Container
         //Transaction
 
-function App() {
-return (
-  <div>
-    {/* <Login /> */}
-    <Landing />
-  </div>
+const App = () => (
+  <Router> 
+    <Switch>
+      <Route path="/" exact component = {SignIn} />
+      <Route path="/landing" component = {Landing} />
+    </Switch>
+  </Router> 
   )
-}
 
 
 

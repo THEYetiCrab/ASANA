@@ -25,3 +25,60 @@ body {
 .submit {
   margin-top: 10px;
 }
+
+.landing {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+
+}
+.leftSide {
+  display:flex;
+  justify-content: center;
+  background-color: #e6e0e0;
+  flex-grow: 1;
+  padding: 10px;
+  border: 3px solid white;
+  border-radius: 15px;
+}
+.rightSide {
+  flex-grow: 10;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  border: 3px solid white;
+  background-color: #90E8FB;
+}
+
+.accInfo, .displayData, .transactions, .accountList {
+  border-radius: 10px;
+  padding: 10px;
+  border: 3px solid white;
+  background-color: #e6e0e0;
+  text-align: center;
+  width: 85%;
+  height: 10%;
+  margin-bottom: 5px;
+}
+
+.displayData {
+  height: 20%;
+}
+
+.transactions {
+  height: 100%;
+}
+
+.accountList {
+  height: 85%;
+  margin-top: 30px;
+}
+

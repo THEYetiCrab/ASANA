@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'; 
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import '../styles.scss';
 
-function Login () {
+const Login = () => {
 
   const { register, handleSubmit, errors } = useForm(); // initialize the hook
   const onSubmit = (data) => {
@@ -19,7 +20,9 @@ function Login () {
       <input name="password" ref={register({ required: true })} placeholder = "password"/>
       {errors.username && 'Username is required.'}
       {errors.password && 'Password is required.'}
+      <Link to='/landing'>
       <input className = "submit" type="submit" />
+      </Link>
     </form>
   </div>
  )

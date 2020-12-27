@@ -10,7 +10,8 @@ module.exports = {
     publicPath: '/build/',
     proxy: {
       '/test' : 'http://localhost:3000'
-    }
+    },
+    historyApiFallback: true, // added this to be able to use Switch in reactRouter
   },
   module: {
     rules: [
