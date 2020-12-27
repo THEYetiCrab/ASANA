@@ -4,6 +4,7 @@ const path = require('path');
 
 //routers:
 const apiRouter = require('./routes/api.js');
+const plaidRouter = require('./routes/plaid.js')
 
 //body parsers
 app.use(express.json());
@@ -33,6 +34,7 @@ const client = new plaid.Client({
 
 //route handlers:
 app.use('/database', apiRouter);
+app.use('/test',plaidRouter);
 
 app.post('/api/info', function (request, response, next) {
   console.log(
@@ -85,6 +87,40 @@ app.post('/test/get_access_token', (request, response) => {
     })
   })
 })
+
+app.get('/test/accounts', (request, response) => {
+  client.getTransactions(ACCESS_TOKEN,'2020-11-01','2020-12-01')
+  .then(data => {
+    // return response.send(data);
+    //add transactions to the database
+    console.log(data.accounts)
+    const transactions = data.transactions; //array of transactions
+    const simpTransactions = []; 
+    let accountRef = {}; 
+
+    data.accounts.forEach((account) => {
+      accountRef[account.account_id] = account.subtype; 
+    })
+
+    transactions.forEach((trx) => {
+      //trx is one transaction object
+      let simpTrx = {
+        account_id: trx.account_id, 
+        merchant_name: trx.merchant_name, 
+        amount: trx.amount, 
+        account_type: accountRef[trx.account_id], 
+        date_of_transaction: trx.date, 
+        category: trx.category[0], 
+        transaction_id: trx.transaction_id
+      }; 
+
+      simpTransactions.push(simpTrx); 
+    })
+
+    return response.send(simpTransactions);
+  })
+  .catch((err) => console.log('error : ' + err));
+});
 
 
 // statically serve everything in the build folder on the route '/build'
