@@ -5,8 +5,8 @@ const plaidController = {};
 const plaid = require('plaid'); 
 const { request } = require('http');
 const client = new plaid.Client({
-  clientID: '',
-  secret: '',
+  clientID: process.env.PLAID_CLIENT_ID,
+  secret: process.env.PLAID_SECRET,
   env: plaid.environments.sandbox, 
   options: {
     version: '2020-09-14',

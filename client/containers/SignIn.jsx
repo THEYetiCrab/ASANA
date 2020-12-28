@@ -116,7 +116,6 @@ export default function SignIn() {
       <Box mt={8}>
         <Copyright />
       </Box>
-      <PlaidButton />
     </Container>
     
   );

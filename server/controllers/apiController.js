@@ -1,11 +1,11 @@
 const { Client } = require('pg');
-const database = new Client('');
+const database = new Client(process.env.POSTGRES_API);
 database.connect()
 
 const apiController = {};
 
 apiController.getBankInfo = (request, response, next) => {
-  const text = 'SELECT * FROM user_information_test';
+  const text = 'SELECT * FROM user_information_test LIMIT 50';
   database.query(text, (err, res) => {
     if (err) {
       return next(err)
