@@ -5,9 +5,9 @@ const plaidController = {};
 const plaid = require('plaid'); 
 const { request } = require('http');
 const client = new plaid.Client({
-  clientID: '5fde32c9df1def00139866d6',
-  secret: 'dcaa4faef979bb95480fed7da33be4',
-  env: plaid.environments.sandbox, // need to download sandbox into this directory.
+  clientID: '',
+  secret: '',
+  env: plaid.environments.sandbox, 
   options: {
     version: '2020-09-14',
   },
@@ -59,7 +59,7 @@ plaidController.getLinkToken = (request, response, next) => {
     });
 };
 
-plaidController.getTransactions = (requst, response, next) => {
+plaidController.getTransactions = (request, response, next) => {
   client.getTransactions(ACCESS_TOKEN,'2020-10-01','2020-12-25')
   .then(data => {
     // return response.send(data);
@@ -87,8 +87,9 @@ plaidController.getTransactions = (requst, response, next) => {
 
       simpTransactions.push(simpTrx); 
     })
-
-    response.locals.transactions = simpTransactions;
+    console.log(simpTransactions)
+    // response.locals.transactions = simpTransactions;
+    request.body = simpTransactions;
     return next();
   })
   .catch((err) => {

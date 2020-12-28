@@ -14,11 +14,12 @@ router.post('/get_access_token', plaidController.getAccessToken, (req, res) => {
 });
 
 
-router.get('/get_transactions', plaidController.getTransactions, (req,res) => {
+router.get('/get_transactions', plaidController.getTransactions, apiController.addBankTransactions, (req,res) => {
   // console.log(res.locals.transactions)
   // redirect it to the post request to the data base. 
   
-  return res.status(200).json(res.locals.transactions);
+  // return res.status(200).json(res.locals.transactions);
+  return res.status(200).send('sent through')
 });
 
 
