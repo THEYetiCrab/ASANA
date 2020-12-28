@@ -14,43 +14,6 @@ const columns = [
   { field: 'account_type', headerName: 'Account Type', width: 130 }
 ];
 
-// const rows = [
-//   {
-//       id: 1,
-//       merchant_name: "ASANA",
-//       category: "Entertainment",
-//       date_of_transaction: "12-19-2020",
-//       amount: 100,
-//   },
-//   {
-//       id: 2,
-//       merchant_name: "ASANA",
-//       amount: 100,
-//       account_type: "Credit",
-//       date_of_transaction: "12-19-2020",
-//       category: "Entertainment"
-//   },
-//   {
-//       id: 3,
-//       account_id: "id26",
-//       merchant_name: "ASANA1",
-//       amount: 102,
-//       account_type: "Debit",
-//       date_of_transaction: "12-19-2020",
-//       category: "Entertainment"
-//   },
-//   {
-//       id: 4,
-//       account_id: "id26",
-//       merchant_name: "ASANA3",
-//       amount: 10,
-//       account_type: "Credit",
-//       date_of_transaction: "12-20-2020",
-//       category: "Entertainment"
-//   }
-// ];
-
-
 
 
 // const Transactions = ({transactions}) => (
@@ -64,7 +27,6 @@ const columns = [
 export default function Transactions() {
 
   const [transactions, setTransactions] = useState([]);
-  const rows = [];
 
   useEffect(() => {
     fetch('http://localhost:3000/test/get_transactions')
@@ -93,7 +55,3 @@ export default function Transactions() {
     </ScrollToBottom>
   );
 }
-
-
-
-// export default Transactions;
