@@ -9,7 +9,8 @@ module.exports = {
   devServer: {
     publicPath: '/build/',
     proxy: {
-      '/test' : 'http://localhost:3000'
+      '/test' : 'http://localhost:3000',
+      '/bcrypt': 'http://localhost:3000',
     },
     historyApiFallback: true, // added this to be able to use Switch in reactRouter
   },

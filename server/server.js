@@ -5,8 +5,12 @@ const path = require('path');
 
 
 //routers:
-const apiRouter = require('./routes/api.js');
-const plaidRouter = require('./routes/plaid.js')
+//apiRouter is connected to the SQL database. Performs operations for bank transactions on the database.
+const dbRouter = require('./routes/db.js');
+//plaidRouter connects to the Plaid API and verifies the user's bank information and allows us access to make API requests for bank transactions
+const plaidRouter = require('./routes/plaid.js');
+//bcryptRouter encrypts, stores and checks passwords connected to a separate SQL table on the database. 
+const bcryptRouter = require('./routes/bcrypt.js');
 
 //body parsers
 app.use(express.json());
@@ -17,12 +21,14 @@ app.use(express.urlencoded({extended: false}));
 
 
 //route handlers:
-app.use('/database', apiRouter);
-app.use('/test',plaidRouter);
+app.use('/database', dbRouter);
+app.use('/test', plaidRouter);
+app.use('/bcrypt', bcryptRouter);
 
 
 // statically serve everything in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
+
 // serve index.html on the route '/'
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));

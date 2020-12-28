@@ -62,19 +62,26 @@ plaidController.getLinkToken = (request, response, next) => {
 plaidController.getTransactions = (request, response, next) => {
   client.getTransactions(ACCESS_TOKEN,'2020-10-01','2020-12-25')
   .then(data => {
-    // return response.send(data);
     //add transactions to the database
     console.log(data.accounts)
-    const transactions = data.transactions; //array of transactions
+    const transactions = data.transactions; //array of transactions delivered from the database. 
     const simpTransactions = []; 
+    const simpAccounts = [];
     let accountRef = {}; 
 
     data.accounts.forEach((account) => {
-      accountRef[account.account_id] = account.subtype; 
-    })
+      let accountsInfo = {};
+      accountRef[account.account_id] = account.subtype;
+      accountsInfo.account_id = account.account_id
+      accountsInfo.account_subtype = account.subtype
+      accountsInfo.account_name = account.official_name
+      accountsInfo.acount_balance = account.balances.available 
+
+      simpAccounts.push(accountsInfo)
+    });
     
     transactions.forEach((trx) => {
-      //trx is one transaction object
+      //trx is one transaction object.
       let simpTrx = {
         account_id: trx.account_id, 
         merchant_name: trx.merchant_name, 
@@ -82,14 +89,14 @@ plaidController.getTransactions = (request, response, next) => {
         account_type: accountRef[trx.account_id], 
         date_of_transaction: trx.date, 
         category: trx.category[0], 
-        transaction_id: trx.transaction_id
+        transaction_id: trx.transaction_id, 
       }; 
 
-      simpTransactions.push(simpTrx); 
+      simpTransactions.push(simpTrx);
+      
     })
-    console.log(simpTransactions)
-    // response.locals.transactions = simpTransactions;
     request.body = simpTransactions;
+    console.log(simpAccounts);
     return next();
   })
   .catch((err) => {
