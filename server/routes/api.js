@@ -16,4 +16,15 @@ router.post('/post_data', apiController.addBankTransactions, (req, res) => {
   return res.status(200).json('success');
 })
 
+//BCRYPT 
+
+router.post('/create_pw', apiController.createPassword, apiController.storeUserCredentials, (req, res) => {
+  return res.status(200).json(res.locals.result);
+})
+
+router.post('/check_pw', apiController.checkPassword,  (req, res) => {
+  return res.status(200).send('saved');
+});
+
+
 module.exports = router;
