@@ -12,5 +12,8 @@ router.get('/userinfo/', apiController.getBankInfo,  (req, res) =>  {
 router.post('/userinfo', apiController.addBankInfo, (req,res) => {
   return res.status(200).json('success');
 })
+router.post('/post_data', apiController.addBankTransactions, (req, res) => {
+  return res.status(200).json('success');
+})
 
 module.exports = router;
