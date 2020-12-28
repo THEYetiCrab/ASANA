@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-
-
 const Transaction = ({name, category, date, amount}) => {
   return (
     <div className = "transaction">
@@ -11,9 +8,6 @@ const Transaction = ({name, category, date, amount}) => {
       <span>{date}</span>
       <span>{amount}</span>
     </div>
-  )
-
-
+  ) 
 }
-
 export default Transaction;

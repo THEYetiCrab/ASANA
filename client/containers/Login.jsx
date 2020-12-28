@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import '../styles.scss';
+import PlaidButton from '../components/PlaidButton.jsx'
 
 const Login = () => {
 
@@ -10,8 +11,9 @@ const Login = () => {
     console.log(data);  /// send data to Auth for verification
   };
 
-
- return (
+ 
+  return (
+  <div>
   <div className="login">
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <h3>Username</h3>
@@ -24,6 +26,8 @@ const Login = () => {
       <input className = "submit" type="submit" />
       </Link>
     </form>
+  </div>
+    <PlaidButton />
   </div>
  )
 }

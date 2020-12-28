@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
+import PlaidButton from '../components/PlaidButton.jsx'
 
 function Copyright() {
   return (
@@ -115,6 +116,8 @@ export default function SignIn() {
       <Box mt={8}>
         <Copyright />
       </Box>
+      <PlaidButton />
     </Container>
+    
   );
 }

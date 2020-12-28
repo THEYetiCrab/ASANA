@@ -1,30 +1,15 @@
 import React, { useCallback } from 'react';
 import AccountList from './AccountList.jsx'
-import { usePlaidLink } from 'react-plaid-link';
 import Button from '@material-ui/core/Button';
-
+import PlaidButton from './PlaidButton.jsx'
 
 
 const NavBar = () => {
-  const onSuccess = useCallback((token, metadata) => {
-    //     // send token to server
-      }, []);
-
-      const config = {
-        token: '<GENERATED_LINK_TOKEN>',
-        onSuccess,
-        // ... 
-      };
-
-      const { open, ready, error } = usePlaidLink(config);
 
       return (
         <div className = "navbar">
-          <Button variant="contained" color="primary">
-        {/* <MyButton onClick={() => open()} disabled={!ready}> */}
-          Connect an account
-          </Button>
-        {/* </MyButton> */}
+          
+        <PlaidButton />
         <AccountList />
         </div>
       );
