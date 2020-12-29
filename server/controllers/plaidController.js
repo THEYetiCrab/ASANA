@@ -98,8 +98,7 @@ plaidController.getTransactions = (request, response, next) => {
     console.log(simpAccounts)
     request.body = [simpTransactions, simpAccounts]
     return next();
-  })
-  .catch((err) => {
+  }).catch((err) => {
     console.log('error : ' + err)
     return next(err)
   });

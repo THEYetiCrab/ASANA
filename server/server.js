@@ -6,9 +6,9 @@ const path = require('path');
 
 //routers:
 //apiRouter is connected to the SQL database. Performs operations for bank transactions on the database.
-const dbRouter = require('./routes/db.js');
+ const dbRouter = require('./routes/db.js');
 //plaidRouter connects to the Plaid API and verifies the user's bank information and allows us access to make API requests for bank transactions
-const plaidRouter = require('./routes/plaid.js');
+ const plaidRouter = require('./routes/plaid.js');
 //bcryptRouter encrypts, stores and checks passwords connected to a separate SQL table on the database. 
 const bcryptRouter = require('./routes/bcrypt.js');
 
@@ -33,11 +33,6 @@ app.use('/build', express.static(path.join(__dirname, '../build')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
-
-
-// catch all for invalid requests that don't match any paths. 
-app.use((req, res) => res.sendStatus(404));
-
 
 app.listen(3000, () => {
   console.log(`Server listening on port: 3000`);
