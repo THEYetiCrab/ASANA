@@ -1,11 +1,11 @@
 const { Client } = require('pg');
-const database = new Client('postgres://cjcfvoek:k4H4MXifkzt8rWlXNAJ72lQp4S8-oxN4@suleiman.db.elephantsql.com:5432/cjcfvoek');
+const database = new Client(process.env.POSTGRES_API);
 database.connect()
 
 const apiController = {};
 
 apiController.getBankInfo = (request, response, next) => {
-  const text = 'SELECT * FROM user_information_test';
+  const text = 'SELECT * FROM user_information_test LIMIT 50';
   database.query(text, (err, res) => {
     if (err) {
       return next(err)

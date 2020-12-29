@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+require('dotenv').config()
 
 //routers:
 const apiRouter = require('./routes/api.js');
@@ -20,8 +21,8 @@ app.use(express.urlencoded({extended: false}));
 // const plaid = require('plaid'); 
 // const { request } = require('http');
 // const client = new plaid.Client({
-//   clientID: '5fde32c9df1def00139866d6',
-//   secret: 'dcaa4faef979bb95480fed7da33be4',
+//   clientID: '',
+//   secret: '',
 //   env: plaid.environments.sandbox, // need to download sandbox into this directory.
 //   options: {
 //     version: '2020-09-14',

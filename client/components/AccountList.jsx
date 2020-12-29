@@ -29,27 +29,29 @@ function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-export default function SimpleList() {
+export default function SimpleList(props) {
   const classes = useStyles();
+
+  console.log(props)
 
   return (
     
     <div className={classes.root}>
       <List component="nav">
         <ListItem button>
-          <ListItemText primary="Account1" />
+          <ListItemText primary="Plaid Gold Standard Checking" />
         </ListItem>
       <Divider />
         <ListItem button>
-          <ListItemText primary="Account2" />
+          <ListItemText primary="Plaid Diamond Credit Card" />
         </ListItem>
       <Divider />
         <ListItem button>
-          <ListItemText primary="Account3" />
+          <ListItemText primary="Plaid Bronze Standard CD" />
         </ListItem>
       <Divider />  
         <ListItemLink>
-          <ListItemText primary="Account4" />
+          <ListItemText primary="Plaid Diamond Credit Card" />
         </ListItemLink>
       </List>
     </div>
