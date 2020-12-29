@@ -19,4 +19,4 @@ router.get('/get_transactions', plaidController.getTransactions, dbController.ad
   return res.status(200).json({transactions: res.locals.transactions, accounts: res.locals.accounts});
 });
 
-module.exports = router;
+module.exports = router; 

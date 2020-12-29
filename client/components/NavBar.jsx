@@ -4,13 +4,13 @@ import Button from '@material-ui/core/Button';
 import PlaidButton from './PlaidButton.jsx'
 
 
-const NavBar = () => {
+const NavBar = (props) => {
 
       return (
         <div className = "navbar">
           
         <PlaidButton />
-        <AccountList />
+        <AccountList accounts={props.accounts} onChange={props.onChange}/>
         </div>
       );
 };
