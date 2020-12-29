@@ -1,7 +1,8 @@
 const express = require('express');
 const plaidController = require('../controllers/plaidController.js');
 const router = express.Router();
-const apiController = require('../controllers/apiController.js');
+const dbController = require('../controllers/dbController.js');
+
 
 router.post('/get_link_token', plaidController.getLinkToken, (req, res) =>  {
   return res.status(200).json(res.locals.linkToken);
@@ -9,18 +10,13 @@ router.post('/get_link_token', plaidController.getLinkToken, (req, res) =>  {
 
 
 router.post('/get_access_token', plaidController.getAccessToken, (req, res) => {
-  console.log(res.locals.responseToken);
   return res.status(200).json(res.locals.responseToken);
 });
 
-
-router.get('/get_transactions', plaidController.getTransactions, apiController.addBankTransactions, apiController.getBankInfo, (req,res) => {
-  // console.log(res.locals.transactions)
-  // redirect it to the post request to the data base. 
-  
-  return res.status(200).json(res.locals.data);
-  // return res.status(200).send('sent through')
+//This middleware chain is run after we receive the access token from Plaid. We first get all of the transactions from the Plaid API, 
+//add them to our DB and then return those same transactions from our DB and display them as form data. 
+router.get('/get_transactions', plaidController.getTransactions, dbController.addAccounts, dbController.addBankTransactions, dbController.getBankTransactions, dbController.getBankAccounts, (req,res) => {
+  return res.status(200).json({transactions: res.locals.transactions, accounts: res.locals.accounts});
 });
-
 
 module.exports = router;

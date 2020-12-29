@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +12,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import PlaidButton from '../components/PlaidButton.jsx'
 
 function Copyright() {
@@ -51,6 +51,44 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState(''); 
+  const [successfulLogin, setLogin] = useState(false);
+
+  const history = useHistory(); 
+  
+
+  const clickHandler = (e) => {
+    console.log(username, password);
+    e.preventDefault(); 
+    console.log('enters click handler')
+    fetch('/bcrypt/check_pw', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(data => data.json()).then(result => {
+      if (result){
+        setLogin(true); 
+        history.push('landing')
+      } else {
+        alert('Invalid username or password')
+      }
+    })
+  }
+
+  const routeChange = () => {
+    if(successfulLogin){
+      return <Redirect to='/landing'/>; 
+    }
+  }
+
+
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -72,6 +110,7 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -83,22 +122,22 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <Link to='/landing'>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-          </Link>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={clickHandler}
+            >
+              Sign In
+            </Button>
           <Grid container>
             <Grid item xs>
               <LinkUI href="#" variant="body2">
@@ -116,8 +155,6 @@ export default function SignIn() {
       <Box mt={8}>
         <Copyright />
       </Box>
-      <PlaidButton />
     </Container>
-    
   );
 }
