@@ -31,7 +31,7 @@ export default function Transactions() {
   useEffect(() => {
     fetch('/test/get_transactions')
       .then(res => res.json())
-      .then(res => setTransactions(res.map((ele) => {
+      .then(res => setTransactions(res.transactions.map((ele) => {
         return {
           id: ele.row_id,
           account_id: ele.account_id,
@@ -49,7 +49,7 @@ export default function Transactions() {
   return (
     <div className="transactions">
       <h3>Transactions</h3>
-      <div className ="table" style={{ height: 800, width: '60%' }}>
+      <div className ="table" style={{ height: 800, width: '90%' }}>
         <DataGrid rows={transactions} columns={columns} pageSize={25}/>
       </div>
     </div>
