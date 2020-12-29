@@ -1,5 +1,5 @@
 const { Client } = require('pg');
-const database = new Client('postgres://cjcfvoek:k4H4MXifkzt8rWlXNAJ72lQp4S8-oxN4@suleiman.db.elephantsql.com:5432/cjcfvoek');
+const database = new Client('');
 database.connect()
 
 const bcrypt = require('bcrypt');
