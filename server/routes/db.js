@@ -17,6 +17,8 @@ router.post('/userinfo', dbController.addBankInfo, (req,res) => {
 //this functionality is included in the "GET" request in 'plaid.js'.
 router.post('/post_data', dbController.addBankTransactions, (req, res) => {
   return res.status(200).json('success');
-})
+});
+
+
 
 module.exports = router;

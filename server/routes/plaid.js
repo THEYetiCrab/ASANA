@@ -15,8 +15,8 @@ router.post('/get_access_token', plaidController.getAccessToken, (req, res) => {
 
 //This middleware chain is run after we receive the access token from Plaid. We first get all of the transactions from the Plaid API, 
 //add them to our DB and then return those same transactions from our DB and display them as form data. 
-router.get('/get_transactions', plaidController.getTransactions, dbController.addBankTransactions, dbController.getBankTransactions, (req,res) => {
-  return res.status(200).json(res.locals.data);
+router.get('/get_transactions', plaidController.getTransactions, dbController.addAccounts, dbController.addBankTransactions, dbController.getBankTransactions, dbController.getBankAccounts, (req,res) => {
+  return res.status(200).json({transactions: res.locals.transactions, accounts: res.locals.accounts});
 });
 
 module.exports = router;

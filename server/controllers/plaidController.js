@@ -5,8 +5,8 @@ const plaidController = {};
 const plaid = require('plaid'); 
 const { request } = require('http');
 const client = new plaid.Client({
-  clientID: '5fde32c9df1def00139866d6',
-  secret: 'dcaa4faef979bb95480fed7da33be4',
+  clientID: '5fdd3b4bf9c7ee0011828972',
+  secret: '7583a626bced850854533c7366c046',
   env: plaid.environments.sandbox, 
   options: {
     version: '2020-09-14',
@@ -75,7 +75,7 @@ plaidController.getTransactions = (request, response, next) => {
       accountsInfo.account_id = account.account_id
       accountsInfo.account_subtype = account.subtype
       accountsInfo.account_name = account.official_name
-      accountsInfo.acount_balance = account.balances.available 
+      accountsInfo.account_balance = account.balances.current 
 
       simpAccounts.push(accountsInfo)
     });
@@ -95,8 +95,8 @@ plaidController.getTransactions = (request, response, next) => {
       simpTransactions.push(simpTrx);
       
     })
-    request.body = simpTransactions;
-    console.log(simpAccounts);
+    console.log(simpAccounts)
+    request.body = [simpTransactions, simpAccounts]
     return next();
   })
   .catch((err) => {
